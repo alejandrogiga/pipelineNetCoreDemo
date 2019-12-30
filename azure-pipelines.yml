@@ -14,8 +14,16 @@ variables:
 
 steps:
 - bash: echo 'Holi'
-- script: dotnet build --configuration $(buildConfiguration)
+- script: dotnet build --configuration 
   displayName: 'dotnet build $(buildConfiguration)'
 - script: dotnet test
   displayName: 'dotnet test'
 - bash: echo 'Adios'
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo Write your commands here
+      echo $(buildConfiguration)
+      echo Hello world
+    
